@@ -1,11 +1,20 @@
 .type {
   &Content {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
+    align-items: center;
     gap: 5px;
 
     &Tag {
       margin-inline-end: unset;
+    }
+  }
+
+  &Generic {
+    padding: 2px;
+
+    .typeContentTag {
+      line-height: 14px;
     }
   }
 

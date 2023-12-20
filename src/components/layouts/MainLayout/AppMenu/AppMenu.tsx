@@ -31,7 +31,7 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
     navigate(key);
   }
 
-  const defaultSelected = useMemo(() => {
+  const selected = useMemo(() => {
     if(pathname === '/') return ['/'];
 
     const keys = parseMenuConfig(config);
@@ -39,13 +39,13 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
       if(!key) return false;
       if(key.toString() === '/' && pathname !== '/') return false;
 
-      const keyRegex = new RegExp(key.toString())
+      const keyRegex = new RegExp(key.toString() + '\\b.*')
 
       return keyRegex.test(pathname);
     })
 
     return selectedKeys as string[];
-  }, [])
+  }, [pathname])
 
   return (
     <div className={$styles.appMenuWrapper}>
@@ -55,7 +55,7 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
       <Affix offsetTop={0}>
         <Menu
           className={$styles.menu}
-          defaultSelectedKeys={defaultSelected}
+          selectedKeys={selected}
           items={config}
           onSelect={changePageHandler}
         />

@@ -1,7 +1,11 @@
-import type {TypesItem} from "@/components/TypeDoc/api-docs.types.ts";
+import type {
+ReturnType,
+TypeArgumentsItem,
+TypesItem
+} from "@/components/TypeDoc/api-docs.types.ts"
 
 interface TypeProps {
-  typeItem: TypesItem
+  typeItem: TypesItem | ReturnType | TypeArgumentsItem
   withTitle?: boolean
 }
 

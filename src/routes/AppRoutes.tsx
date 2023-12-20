@@ -48,7 +48,7 @@ const AppRoutes = () => {
           element={<ApiPage />}
         >
           <Route
-            path=":section"
+            path=":section?"
             element={<ApiPage />}
           >
             <Route

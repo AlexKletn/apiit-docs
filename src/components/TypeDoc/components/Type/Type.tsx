@@ -1,24 +1,26 @@
-import {Tag, Typography} from "antd";
+import {Tag, Typography} from "antd"
 import classNames from "classnames";
+import {Link} from "react-router-dom";
+import {Fragment} from "react";
 import Properties from "@/components/TypeDoc/components/Properties/Properties.tsx";
+import useFindItemLink from "@/components/TypeDoc/hooks/useFindItem.ts";
 import $styles from './Type.module.scss';
-import type {TypeProps} from "@/components/TypeDoc/components/Type/types.ts";
 import type {FC, PropsWithChildren} from "react";
+import type {TypeProps} from "@/components/TypeDoc/components/Type/types.ts";
 
 const TypeWrapper: FC<PropsWithChildren<Pick<TypeProps, 'withTitle'>>> = ({children, withTitle}) => (
-  <div>
-    <div className={classNames([$styles.typeContent])}>
-      { withTitle &&
-        <Typography.Text strong>
-          Type:
-        </Typography.Text>
-      }
-      {children}
-    </div>
-  </div>
+  <span className={classNames([$styles.typeContent])}>
+    { withTitle &&
+      <Typography.Text strong>
+        Type:
+      </Typography.Text>
+    }
+    {children}
+  </span>
 )
 
 const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
+  const findItemLink = useFindItemLink();
   const typeKind = typeItem.kind;
 
   console.log(typeItem);
@@ -33,14 +35,44 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
     )
   }
 
-  const generic = typeItem.typeArguments && typeItem.typeArguments.length > 0 ? `<${ typeItem.typeArguments.map(({ name, type }) => name ?? type).join(', ')}>` : '';
+  const generic = typeItem.typeArguments && typeItem.typeArguments.length > 0 ? (
+    <span className={$styles.typeGeneric}>
+      {"<"}
+        {typeItem.typeArguments.map((type, index, array) => (
+          <Fragment key={type.id}>
+            <Type
+              key={type.id}
+              typeItem={type}
+            />
+            { index + 1 < array.length && ', ' }
+          </Fragment>
+        ))}
+      {">"}
+    </span>
+  ) : '';
 
   if (typeKind === 'reference') {
+    const itemHref = findItemLink(typeItem.name as string);
+    const RefTag = (
+      <Tag className={$styles.typeContentTag}>
+        { typeItem.name }
+        {generic}
+      </Tag>
+    )
+
+    if(itemHref) {
+      return (
+        <TypeWrapper withTitle={withTitle}>
+          <Link to={itemHref}>
+            {RefTag}
+          </Link>
+        </TypeWrapper>
+      )
+    }
+
     return (
       <TypeWrapper withTitle={withTitle}>
-        <Tag className={$styles.typeContentTag}>
-            { typeItem.name + generic }
-        </Tag>
+        {RefTag}
       </TypeWrapper>
     )
   }
@@ -58,7 +90,9 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
   if (typeKind === "union") {
     return (
     <TypeWrapper withTitle={withTitle}>
+      union: 
       {
+        // @ts-ignore
         typeItem.types?.map((type) => <Type
           key={type.id ?? type.name}
           typeItem={type}
@@ -71,6 +105,7 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
     return (
     <TypeWrapper withTitle={withTitle}>
       <Tag className={$styles.typeContentTag}>
+        {/* @ts-ignore */}
         {typeItem.value}
       </Tag>
     </TypeWrapper>

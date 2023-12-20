@@ -22,7 +22,7 @@ const menuConfig: ItemType[] = [
     label: "Documentation",
     children: [
       {
-        key: '/guide/api-layer/prepare-structure',
+        key: '/guide',
         label: "Guide",
         icon: <ReadOutlined />,
       },

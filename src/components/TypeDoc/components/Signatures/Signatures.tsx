@@ -1,17 +1,33 @@
 import {useMemo} from "react";
 import {List, Typography} from "antd";
+import Type from "@/components/TypeDoc/components/Type/Type.tsx";
 import $stylesCommon from '../Section.module.scss';
 import type {FC} from "react";
 import type {SignaturesTableProps} from "@/components/TypeDoc/components/Signatures/types.ts";
 
 const Signatures: FC<SignaturesTableProps> = ({signatures, withTitle = false }) => {
   const mappedSignatires = useMemo(
-    () => signatures.map(({name, parameters, returnType, typeParameters}) => {
+    () => signatures.map(({id, name, parameters, returnType, typeParameters}) => {
       const params = parameters.map((parameter) => `${parameter.name}: ${parameter.type.name ?? parameter.type.type}`).join(', ');
       const generic = typeParameters.length > 0 ? `<${typeParameters.map(({ name }) => name).join(', ')}>` : '';
-      const returnStr = returnType.type || returnType.name ? `: ${returnType.name ?? returnType.type}` : '';
+      const returnStr = returnType.type || returnType.name ?
+        (
+          <>
+            {": "}
+            <Type typeItem={returnType} />
+          </>
+        )
+      : undefined;
 
-      return `${name}${generic}(${params})${returnStr}`;
+      console.log(returnType)
+
+      return (
+        <span key={id}>
+          {`${name}${generic}(${params})`}
+
+          { returnStr }
+        </span>
+      );
     }),
     [signatures]
   )
@@ -27,8 +43,8 @@ const Signatures: FC<SignaturesTableProps> = ({signatures, withTitle = false }) 
         bordered
       >
         {
-          mappedSignatires.map((param) =>
-            <List.Item key={param}>{param}</List.Item>
+          mappedSignatires.map((param, index) =>
+            <List.Item key={index}>{param}</List.Item>
           )
         }
       </List>
