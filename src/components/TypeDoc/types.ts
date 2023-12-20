@@ -1,4 +1,4 @@
-import type ApiDoc from "./api-docs.types";
+import type {ApiDoc} from "./api-docs.types";
 
 interface ApiDocItemType {
   name: string

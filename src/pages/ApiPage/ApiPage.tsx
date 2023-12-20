@@ -7,6 +7,7 @@ const ApiPage = () => {
   const [apiJson, setApiJson ] = useState();
 
   useEffect(() => {
+    // @ts-ignore
     getDocs.request().getResult().then(({ data }) => {
       setApiJson(data);
     })

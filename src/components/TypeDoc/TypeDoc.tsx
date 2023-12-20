@@ -50,7 +50,8 @@ const TypeDoc: FC<TypeDocProps> = ({ config, basePath = '/api'}) => {
     navigate(menu[0].children[0].key)
   }
 
-  const item = useMemo(() => config[section as keyof ApiDoc]?.find((item: ItemsTypes) => item.name === name), [section, name])
+  const item = useMemo(() => config[section as keyof ApiDoc]?.find((item) => item.name === name), [section, name]) as unknown as ItemsTypes;
+
   const existSections = useMemo(() => ({
     properties: !!item?.properties && item.properties.length > 0,
     description: !!item?.comment.description,
@@ -110,6 +111,7 @@ const TypeDoc: FC<TypeDocProps> = ({ config, basePath = '/api'}) => {
         )}
         {existSections.type && (
           <Type
+            /* @ts-ignore */
             typeItem={item.type ?? []}
             withTitle
           />
