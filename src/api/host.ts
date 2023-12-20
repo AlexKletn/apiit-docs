@@ -1,3 +1,3 @@
 import {createHost} from 'apiit';
 
-export default createHost("/api")
+export default createHost("/api", {})
