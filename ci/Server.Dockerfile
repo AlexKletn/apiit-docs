@@ -6,4 +6,4 @@ COPY ./ .
 
 RUN npm ci
 EXPOSE 9090
-CMD ["npm run", "server"]
+CMD npm run server
