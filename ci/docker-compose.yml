@@ -13,6 +13,6 @@ services:
     restart: always
     build:
       context: ../
-      dockerfile: ../ci/Server.Dockerfile
+      dockerfile: ./ci/Server.Dockerfile
     ports:
       - '${SRV_PORT}:9090'
