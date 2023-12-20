@@ -23,8 +23,6 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
   const findItemLink = useFindItemLink();
   const typeKind = typeItem.kind;
 
-  console.log(typeItem);
-
   if (typeKind === 'intrinsic') {
     return (
       <TypeWrapper>
@@ -90,7 +88,7 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
   if (typeKind === "union") {
     return (
     <TypeWrapper withTitle={withTitle}>
-      union: 
+      union:
       {
         // @ts-ignore
         typeItem.types?.map((type) => <Type

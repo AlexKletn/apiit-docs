@@ -19,8 +19,6 @@ const Signatures: FC<SignaturesTableProps> = ({signatures, withTitle = false }) 
         )
       : undefined;
 
-      console.log(returnType)
-
       return (
         <span key={id}>
           {`${name}${generic}(${params})`}
