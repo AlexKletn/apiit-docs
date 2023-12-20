@@ -1,0 +1,9 @@
+.layout {
+  height: 100%;
+  padding: 10px;
+
+  &Content {
+    border-radius: 10px;
+    min-height: calc(100vh - 20px);
+  }
+}

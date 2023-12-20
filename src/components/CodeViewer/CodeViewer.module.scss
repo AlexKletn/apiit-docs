@@ -1,0 +1,17 @@
+.codeViewer {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--lt-color-border-default);
+
+  pre {
+    margin: 0 !important;
+  }
+
+  &Settings {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+    justify-content: space-between;
+    gap: 4px;
+  }
+}

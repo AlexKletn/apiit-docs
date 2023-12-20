@@ -1,0 +1,14 @@
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+
+  &Menu {
+    width: 250px;
+  }
+
+  &Content {
+    padding: 10px 20px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}

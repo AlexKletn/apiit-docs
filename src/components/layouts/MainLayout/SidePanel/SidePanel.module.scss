@@ -1,0 +1,25 @@
+.sidePanel {
+  border-radius: 10px 0 0 10px;
+  position: relative;
+
+  .libName {
+    padding: 10px;
+    padding: {
+      top: 30px;
+    };
+    font-size: 25px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  &CollapseBtn {
+    position: absolute;
+    bottom: 10px;
+    left: calc(100% - 20px);
+  }
+}

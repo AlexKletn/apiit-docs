@@ -1,0 +1,9 @@
+.methodsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .createMethodCard {
+    border: 1px solid rgba(104, 161, 77, 0.5);
+  }
+}

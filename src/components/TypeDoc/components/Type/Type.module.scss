@@ -1,0 +1,21 @@
+.type {
+  &Content {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+    &Tag {
+      margin-inline-end: unset;
+    }
+  }
+
+  &Table {
+    margin: 5px;
+
+    & > * {
+    }
+  }
+}
+:global(:where(.css-dev-only-do-not-override-unboq8).ant-table-wrapper .ant-table.ant-table-middle .ant-table-tbody .ant-table-wrapper:only-child .ant-table ) {
+  margin-inline: unset;
+}
