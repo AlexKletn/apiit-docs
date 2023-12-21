@@ -6,6 +6,14 @@ import eslintPlugin from '@nabla/vite-plugin-eslint';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), eslintPlugin()],
+  build: {
+    terserOptions: {
+      toplevel: true,
+      format: {
+        comments: false
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

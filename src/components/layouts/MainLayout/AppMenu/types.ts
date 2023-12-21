@@ -1,8 +1,8 @@
-import type {ItemType} from "antd/es/menu/hooks/useItems";
+import type {MenuProps} from "antd";
 import type {ReactNode} from "react";
 
 interface AppMenuProps {
-  config: ItemType[]
+  config: MenuProps['items']
   prepend?: ReactNode
   append?: ReactNode
 }

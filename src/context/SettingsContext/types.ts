@@ -4,13 +4,15 @@ type PackageManagerType =  'npm' | 'yarn';
 
 interface SettingsContextState {
   packageManagerType: PackageManagerType;
-  sectionMenu?: ItemType[]
+  isLoading: boolean
+  sectionMenu?: ItemType[];
 }
 
 interface SettingsContextActions {
   setPackageManager: (packageManagerType: PackageManagerType) => void;
   setSectionMenu: (sectionMenu: ItemType[]) => void;
   cleanSectionMenu: () => void;
+  setLoading: (loading: boolean) => void
 }
 
 interface SettingsContextType {

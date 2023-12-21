@@ -4,9 +4,9 @@ HomeOutlined,
 PlusCircleOutlined,
 ReadOutlined
 } from "@ant-design/icons"
-import type {ItemType} from "antd/es/menu/hooks/useItems";
+import type {MenuProps} from "antd";
 
-const menuConfig: ItemType[] = [
+const menuConfig: MenuProps['items'] = [
   {
     key: '/',
     label: "Home",
@@ -18,6 +18,7 @@ const menuConfig: ItemType[] = [
     icon: <PlusCircleOutlined />
   },
   {
+    key: 'docs-group',
     type: "group",
     label: "Documentation",
     children: [

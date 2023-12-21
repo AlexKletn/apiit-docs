@@ -14,7 +14,6 @@ const VersionBadge = () => {
   return (
     <span className={$styles.versionBadge}>
       {version}
-      <sup>α</sup>
     </span>
   )
 }

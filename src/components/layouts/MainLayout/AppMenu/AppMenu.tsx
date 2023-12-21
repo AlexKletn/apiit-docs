@@ -34,7 +34,7 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
   const selected = useMemo(() => {
     if(pathname === '/') return ['/'];
 
-    const keys = parseMenuConfig(config);
+    const keys = parseMenuConfig(config ?? []);
     const selectedKeys = keys.filter((key) => {
       if(!key) return false;
       if(key.toString() === '/' && pathname !== '/') return false;

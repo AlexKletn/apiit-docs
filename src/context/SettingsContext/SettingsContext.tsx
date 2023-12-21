@@ -15,6 +15,7 @@ const DEFAULT_STATE: {
   state: SettingsContextState,
 } = {
   state: {
+    isLoading: false,
     packageManagerType: "npm",
     sectionMenu: undefined
   },
@@ -24,17 +25,20 @@ const Context = createContext<SettingsContextType>(DEFAULT_STATE as SettingsCont
 
 const SettingsContextProvider: FC<PropsWithChildren> = ({children}) => {
   const [packageManagerType, setPackageManager] = useState<PackageManagerType>(DEFAULT_STATE.state.packageManagerType);
+  const [isLoading, setLoading] = useState<boolean>(DEFAULT_STATE.state.isLoading);
   const [sectionMenu, setSectionMenu] = useState<ItemType[] | undefined>(DEFAULT_STATE.state.sectionMenu);
 
   const ctxState = useMemo(() => ({
     state: {
       packageManagerType,
+      isLoading,
       sectionMenu
     },
 
     actions: {
       setPackageManager,
       setSectionMenu,
+      setLoading,
       cleanSectionMenu: () => {
         setSectionMenu(undefined);
       }
