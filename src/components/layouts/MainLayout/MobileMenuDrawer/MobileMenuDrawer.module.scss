@@ -1,0 +1,19 @@
+.mobileMenuDrawer {
+  .sectionMenu {
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px  rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+}
+
+.openBtn {
+  left: 20px;
+  bottom: calc(5vw - 20px);
+  transition: .2s left;
+  z-index: 1001;
+
+  &Open {
+    left: calc(95% - 20px);
+  }
+}

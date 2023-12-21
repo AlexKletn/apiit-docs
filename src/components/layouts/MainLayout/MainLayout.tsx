@@ -1,5 +1,4 @@
 import {Layout, theme} from "antd"
-
 import SidePanel from "@/components/layouts/MainLayout/SidePanel/SidePanel.tsx";
 import ContentWrapper from "@/components/layouts/MainLayout/ContentWrapper/ContentWrapper.tsx";
 import $styles from './mainLayout.module.scss';

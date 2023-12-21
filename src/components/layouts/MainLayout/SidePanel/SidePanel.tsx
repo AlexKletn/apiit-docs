@@ -1,22 +1,22 @@
 import {useMemo} from "react";
-import {
-Divider,
-Layout,
-Menu
-} from "antd"
-import {GithubOutlined} from "@ant-design/icons";
-
-import AppMenu from "@/components/layouts/MainLayout/AppMenu/AppMenu.tsx";
-import VersionBadge from "@/components/VersionBadge/VersionBadge.tsx";
+import {Layout} from "antd"
 import useSettingsContext from "@/context/SettingsContext/useSettingsContext.ts";
+import MainMenu from "@/components/layouts/MainLayout/MainMenu/MainMenu.tsx";
+import MobileMenuDrawer from "@/components/layouts/MainLayout/MobileMenuDrawer/MobileMenuDrawer.tsx";
+import useIsMobile from "@/hooks/useIsMobile.ts";
 import $styles from './SidePanel.module.scss';
-import menuConfig from "./menuConfig.tsx";
 
 const SidePanel = () => {
   const { state} = useSettingsContext();
   // const [collapsed, setCollapsed] = useState(true);
 
   const collapsed = useMemo(() => !!state.sectionMenu, [state.sectionMenu]);
+
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return <MobileMenuDrawer />
+  }
 
   return (
     <Layout.Sider
@@ -25,46 +25,9 @@ const SidePanel = () => {
       trigger={null}
       theme="light"
       className={$styles.sidePanel}
-      width="250px"
+      width="200px"
     >
-      <AppMenu
-        append={(
-          <Menu selectedKeys={[]}>
-            <Menu.Item icon={<GithubOutlined />}>
-              <a
-                href="https://github.com/AlexKletn/apiit"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Github
-              </a>
-
-            </Menu.Item>
-          </Menu>
-        )}
-        prepend={(
-          <>
-            <div className={$styles.libName}>
-              Apiit
-
-              <VersionBadge />
-            </div>
-
-            <Divider />
-          </>
-        )}
-        config={menuConfig}
-      />
-
-      {/* <Button */}
-      {/*  className={$styles.sidePanelCollapseBtn} */}
-      {/*  size="large" */}
-      {/*  shape="circle" */}
-      {/*  onClick={switchCollapsedHandler} */}
-      {/*  icon={<LeftOutlined */}
-      {/*    rotate={collapsed ? 180 : 0} */}
-      {/*  />} */}
-      {/*/ > */}
+      <MainMenu />
     </Layout.Sider>
   )
 }

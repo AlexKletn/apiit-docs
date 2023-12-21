@@ -5224,6 +5224,11 @@ url-fns@^1.2.1:
   resolved "https://registry.npmjs.org/url-fns/-/url-fns-1.2.1.tgz"
   integrity sha512-xiUr/tB7V7ZuqBet6jjq1t83cKOJazVupIKjiWgYkM5EpNcZJZxC0hJRj4+lk6rX5Mb85g2WIggKVBjnncfLqQ==
 
+use-media@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/use-media/-/use-media-1.5.0.tgz#7d023f04ab6a016e73175508c44ae2a8baddaa28"
+  integrity sha512-gEKsAwpqeejjLXllfQLlktok4CX3cpsS0TChDR9VTl3xQ/231jWujjebnJrt+IH50RRO163JPvHVKBj+W+Weqg==
+
 util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"

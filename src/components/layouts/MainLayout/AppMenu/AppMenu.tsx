@@ -2,6 +2,7 @@ import {Affix, Menu} from "antd"
 
 import {useLocation, useNavigate} from "react-router-dom";
 import {useMemo} from "react";
+import useIsMobile from "@/hooks/useIsMobile.ts";
 import $styles from './AppMenu.module.scss';
 import type {FC} from "react";
 import type {AppMenuProps} from "@/components/layouts/MainLayout/AppMenu/types.ts";
@@ -47,26 +48,43 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
     return selectedKeys as string[];
   }, [pathname])
 
+  const isMobile = useIsMobile();
+
+  const menu = (
+
+    <Menu
+      className={$styles.menu}
+      selectedKeys={selected}
+      items={config}
+      onSelect={changePageHandler}
+    />
+  )
+
   return (
     <div className={$styles.appMenuWrapper}>
       {prepend}
 
-
-      <Affix offsetTop={0}>
-        <Menu
-          className={$styles.menu}
-          selectedKeys={selected}
-          items={config}
-          onSelect={changePageHandler}
-        />
-      </Affix>
+      {
+        isMobile ? (
+          menu
+        ) : (
+          <Affix offsetTop={0}>
+            {menu}
+          </Affix>
+        )
+      }
 
       {append && (
-
         <div className={$styles.appMenuAppend}>
-          <Affix offsetBottom={0}>
-              {append}
-          </Affix>
+          {
+            isMobile ? (
+              append
+            ) : (
+              <Affix offsetTop={0}>
+                {append}
+              </Affix>
+            )
+          }
         </div>
       )}
     </div>

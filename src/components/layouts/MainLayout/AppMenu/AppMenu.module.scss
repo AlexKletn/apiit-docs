@@ -1,9 +1,14 @@
 .appMenu {
   &Wrapper {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
     height: 100%;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 1500px) {
+      border-right: 0px;
+    }
+
 
     .menu {
       padding: 5px;

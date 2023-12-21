@@ -1,5 +1,6 @@
 import {Divider, Typography} from "antd"
 import usePageTitle from "@/hooks/usePageTitle.ts";
+import VersionBadge from "@/components/VersionBadge/VersionBadge.tsx";
 
 const { Title, Paragraph } = Typography;
 
@@ -10,6 +11,10 @@ const MainPage = () => {
     <div>
       <Title>
         Apiit
+        {"  "}
+        <sup>
+          <VersionBadge />
+        </sup>
       </Title>
 
       <Paragraph>
