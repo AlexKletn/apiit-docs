@@ -80,7 +80,7 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append, pinned = false }) =
             isMobile ? (
               append
             ) : (
-              <Affix offsetTop={0}>
+              <Affix offsetBottom={0}>
                 {append}
               </Affix>
             )

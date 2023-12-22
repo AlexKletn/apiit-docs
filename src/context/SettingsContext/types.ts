@@ -4,6 +4,7 @@ type PackageManagerType =  'npm' | 'yarn';
 
 interface SettingsContextState {
   packageManagerType: PackageManagerType;
+  uiMode: 'night' | 'day';
   isLoading: boolean
   sectionMenu?: ItemType[];
 }
@@ -13,6 +14,7 @@ interface SettingsContextActions {
   setSectionMenu: (sectionMenu: ItemType[]) => void;
   cleanSectionMenu: () => void;
   setLoading: (loading: boolean) => void
+  switchUiMode: () => void
 }
 
 interface SettingsContextType {
