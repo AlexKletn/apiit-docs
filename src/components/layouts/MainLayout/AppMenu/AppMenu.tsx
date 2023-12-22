@@ -24,7 +24,7 @@ function parseMenuConfig(items: ItemType[]) {
   return items.map((item) => mapItemHandler(item)).flat().filter((key) => !!key)
 }
 
-const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
+const AppMenu: FC<AppMenuProps> = ({config, prepend, append, pinned = false }) => {
   const {pathname} = useLocation();
   const navigate = useNavigate();
 
@@ -65,7 +65,7 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append}) => {
       {prepend}
 
       {
-        isMobile ? (
+        !pinned || isMobile ? (
           menu
         ) : (
           <Affix offsetTop={0}>

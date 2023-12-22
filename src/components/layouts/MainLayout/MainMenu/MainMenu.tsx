@@ -11,6 +11,7 @@ const MainMenu = () => {
 
   return (
     <AppMenu
+      pinned
       append={(
         <Menu selectedKeys={[]}>
           <Menu.Item icon={<GithubOutlined />}>

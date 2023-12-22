@@ -5,6 +5,7 @@ interface AppMenuProps {
   config: MenuProps['items']
   prepend?: ReactNode
   append?: ReactNode
+  pinned?: boolean
 }
 
 export type {
