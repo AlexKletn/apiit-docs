@@ -17,7 +17,10 @@ const ApiPage = () => {
 
   if (!apiJson) {
     return (
-      <Skeleton title/>
+      <Skeleton
+        active
+        title
+      />
     )
   }
 

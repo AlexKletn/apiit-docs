@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import $styles from './VersionBadge.module.scss'
 
 const VersionBadge = () => {
-  const [version, setVersion] = useState('');
+  const [version, setVersion] = useState<string>();
 
   useEffect(() => {
     packageJson('apiit').then(({ version }) => {
@@ -13,7 +13,7 @@ const VersionBadge = () => {
 
   return (
     <span className={$styles.versionBadge}>
-      {version}
+      {version ?? 'Loading'}
     </span>
   )
 }

@@ -11,7 +11,13 @@ const LazyPageWrapper: FC<{
 }> = ({ lazy: Lazy }) => {
 
   return (
-    <Suspense fallback={<Skeleton title />}>
+    <Suspense fallback={(
+      <Skeleton
+        active
+        title
+      />
+    )}
+    >
       <Lazy />
     </Suspense>)
 }

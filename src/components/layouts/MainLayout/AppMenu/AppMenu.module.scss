@@ -3,6 +3,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+
     border-right: var(--ant-line-width) solid var(--ant-color-split);
 
     @media (max-width: 1500px) {
@@ -15,12 +17,13 @@
       border-inline-end: unset !important;
       max-height: 100%;
       overflow: auto;
+      border-radius: 10px;
     }
   }
 
   &Append {
     margin-top: auto;
-    overflow: hidden;
     border-radius: 10px;
+    overflow: hidden;
   }
 }

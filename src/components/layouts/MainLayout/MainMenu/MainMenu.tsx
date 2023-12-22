@@ -12,6 +12,8 @@ import SvgDayNight from '@/assets/images/icons/day-night.svg?react'
 // @ts-ignore
 import SvgNpmIcon from '@/assets/images/icons/npm-outlined.svg?react'
 
+import $AppMenuStyles from '@/components/layouts/MainLayout/AppMenu/AppMenu.module.scss'
+
 const MainMenu = () => {
   const { actions} = useSettingsContext();
   const isMobile = useIsMobile();
@@ -20,7 +22,10 @@ const MainMenu = () => {
     <AppMenu
       pinned
       append={(
-        <Menu selectedKeys={[]}>
+        <Menu
+          className={$AppMenuStyles.menu}
+          selectedKeys={[]}
+        >
           <Menu.Item
             icon={
               <Icon component={SvgDayNight} />

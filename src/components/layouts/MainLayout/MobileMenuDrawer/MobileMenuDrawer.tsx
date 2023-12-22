@@ -46,7 +46,9 @@ const MobileMenuDrawer: FC = () => {
           <div className={$styles.sectionMenu}>
             <SectionMenu />
           </div>
-          <MainMenu />
+          <div>
+            <MainMenu />
+          </div>
         </div>
       </Drawer>
     </div>
