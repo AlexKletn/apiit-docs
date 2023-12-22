@@ -7,8 +7,10 @@ import menuConfig from "@/components/layouts/MainLayout/MainMenu/menuConfig.tsx"
 import useIsMobile from "@/hooks/useIsMobile.ts";
 import useSettingsContext from "@/context/SettingsContext/useSettingsContext.ts";
 
-import SvgDayNight from '@/assets/images/icons/day-night.svg'
-import SvgNpmIcon from '@/assets/images/icons/npm-outlined.svg'
+// @ts-ignore
+import SvgDayNight from '@/assets/images/icons/day-night.svg?react'
+// @ts-ignore
+import SvgNpmIcon from '@/assets/images/icons/npm-outlined.svg?react'
 
 const MainMenu = () => {
   const { actions} = useSettingsContext();
@@ -21,7 +23,6 @@ const MainMenu = () => {
         <Menu selectedKeys={[]}>
           <Menu.Item
             icon={
-              // @ts-ignore
               <Icon component={SvgDayNight} />
             }
             onClick={actions.switchUiMode}
@@ -29,7 +30,6 @@ const MainMenu = () => {
             Ui Mode
           </Menu.Item>
           <Menu.Item icon={
-              // @ts-ignore
               <Icon component={SvgNpmIcon} />
             }
           >
