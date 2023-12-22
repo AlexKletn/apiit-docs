@@ -1,5 +1,6 @@
 import {updateUrl} from "url-fns";
 import {useMemo} from "react";
+import AppMenuLink from "@/components/layouts/MainLayout/AppMenu/AppMenuLink.tsx";
 import type {
 GeneratedConfigs,
 MenuConfItemType,
@@ -26,6 +27,10 @@ const menuItemsMapper = (items: MenuRouteItemType[], base: string): ItemType[] =
           path: `./${item.key}`
         }
       })
+    }
+
+    if(!item.type) {
+      menuItem.label = (<AppMenuLink to={menuItem.key as string}>{menuItem.label}</AppMenuLink>)
     }
 
     return menuItem as ItemType;

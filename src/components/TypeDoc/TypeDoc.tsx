@@ -8,7 +8,7 @@ Typography
 } from "antd"
 
 import {GithubOutlined} from "@ant-design/icons";
-import useTypeDocMenu from "@/components/TypeDoc/hooks/useTypeDocMenu.ts";
+import useTypeDocMenu from "@/components/TypeDoc/hooks/useTypeDocMenu.tsx";
 import useSectionMenu from "@/hooks/useSectionMenu.ts";
 import Properties from "@/components/TypeDoc/components/Properties/Properties.tsx";
 import Signatures from "@/components/TypeDoc/components/Signatures/Signatures.tsx";

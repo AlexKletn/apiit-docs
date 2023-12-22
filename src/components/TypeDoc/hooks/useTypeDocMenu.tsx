@@ -1,3 +1,4 @@
+import AppMenuLink from "@/components/layouts/MainLayout/AppMenu/AppMenuLink.tsx";
 import type {ApiDoc} from "@/components/TypeDoc/api-docs.types.ts";
 import type {ItemType} from "antd/es/menu/hooks/useItems";
 import type {ApiDocItemType} from "@/components/TypeDoc/types.ts";
@@ -11,7 +12,7 @@ const createGroup = (name: string, key: string, items: ApiDocItemType[]): ItemTy
 
 const createItem = (item: ApiDocItemType, parentKey: string): ItemType => ({
   key: `${parentKey}/${item.name}`,
-  label: item.name
+  label: (<AppMenuLink to={`${parentKey}/${item.name}`}> {item.name} </AppMenuLink>)
 });
 
 const useTypeDocMenu = ({ functions, interfaces, classes, typeAliases, variables, namespaces, enums }: ApiDoc, basePath: string) => {

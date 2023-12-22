@@ -6,7 +6,7 @@ useRoutes
 } from "react-router-dom"
 import {useEffect} from "react";
 import guideMenuConfig from "@/pages/GuidePage/guideMenuConfig.tsx";
-import useMenuConfig from "@/hooks/useMenuConfig.ts";
+import useMenuConfig from "@/hooks/useMenuConfig.tsx";
 import useSectionMenu from "@/hooks/useSectionMenu.ts";
 
 

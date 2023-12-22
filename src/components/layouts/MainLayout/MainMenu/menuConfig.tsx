@@ -4,17 +4,18 @@ HomeOutlined,
 PlusCircleOutlined,
 ReadOutlined
 } from "@ant-design/icons"
+import AppMenuLink from "@/components/layouts/MainLayout/AppMenu/AppMenuLink.tsx";
 import type {MenuProps} from "antd";
 
 const menuConfig: MenuProps['items'] = [
   {
     key: '/',
-    label: "Home",
+    label: (<AppMenuLink to="/">Home</AppMenuLink>),
     icon: <HomeOutlined />
   },
   {
     key: '/installation',
-    label: "Installation",
+    label: (<AppMenuLink to="/installation">Installation</AppMenuLink>),
     icon: <PlusCircleOutlined />
   },
   {
@@ -24,13 +25,13 @@ const menuConfig: MenuProps['items'] = [
     children: [
       {
         key: '/guide',
-        label: "Guide",
+        label: (<AppMenuLink to="/guide">Guide</AppMenuLink>),
         icon: <ReadOutlined />,
       },
 
       {
         key: '/api-description',
-        label: "Api",
+        label: (<AppMenuLink to="/api-description">Api</AppMenuLink>),
         icon: <ApiOutlined />
       },
     ]

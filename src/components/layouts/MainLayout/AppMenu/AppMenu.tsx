@@ -1,6 +1,6 @@
 import {Affix, Menu} from "antd"
 
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {useMemo} from "react";
 import useIsMobile from "@/hooks/useIsMobile.ts";
 import $styles from './AppMenu.module.scss';
@@ -26,11 +26,6 @@ function parseMenuConfig(items: ItemType[]) {
 
 const AppMenu: FC<AppMenuProps> = ({config, prepend, append, pinned = false }) => {
   const {pathname} = useLocation();
-  const navigate = useNavigate();
-
-  const changePageHandler = ({ key }: { key: string }) => {
-    navigate(key);
-  }
 
   const selected = useMemo(() => {
     if(pathname === '/') return ['/'];
@@ -56,7 +51,6 @@ const AppMenu: FC<AppMenuProps> = ({config, prepend, append, pinned = false }) =
       className={$styles.menu}
       selectedKeys={selected}
       items={config}
-      onSelect={changePageHandler}
     />
   )
 

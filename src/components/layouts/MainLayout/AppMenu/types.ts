@@ -8,6 +8,11 @@ interface AppMenuProps {
   pinned?: boolean
 }
 
+interface AppMenuLinkProps {
+  to: string
+}
+
 export type {
-  AppMenuProps
+  AppMenuProps,
+  AppMenuLinkProps
 }
