@@ -4,6 +4,7 @@ import PrepareDirectoryStructureSection
   from "@/pages/GuidePage/Sections/CreateApiLayer/PrepareDirectoryStructureSection.tsx";
 import CreateEndpointSection from "@/pages/GuidePage/Sections/CreateApiLayer/CreateEndpointSection.tsx";
 import SendRequestSection from "@/pages/GuidePage/Sections/CreateApiLayer/SendRequestSection.tsx";
+import AboutRequestPayload from "@/pages/GuidePage/Sections/AboutRequestPayload.tsx";
 import type {MenuRouteItemType} from "@/hooks/types.ts";
 
 const guideMenuConfig: MenuRouteItemType[] = [
@@ -42,6 +43,12 @@ const guideMenuConfig: MenuRouteItemType[] = [
     index: true,
     label: "Create single endpoint",
     component: <CreateSingleEndpoint />
+  },
+  {
+    key: "request-payload",
+    index: true,
+    label: "About request payload",
+    component: <AboutRequestPayload />
   },
 ]
 
