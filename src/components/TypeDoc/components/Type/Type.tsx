@@ -6,6 +6,7 @@ import Properties from "@/components/TypeDoc/components/Properties/Properties.ts
 import useFindItemLink from "@/components/TypeDoc/hooks/useFindItem.ts";
 import $styles from './Type.module.scss';
 import type {FC, PropsWithChildren} from "react";
+import type {TypesItem} from "@/components/TypeDoc/api-docs.types.ts";
 import type {TypeProps} from "@/components/TypeDoc/components/Type/types.ts";
 
 const TypeWrapper: FC<PropsWithChildren<Pick<TypeProps, 'withTitle'>>> = ({children, withTitle}) => (
@@ -22,6 +23,8 @@ const TypeWrapper: FC<PropsWithChildren<Pick<TypeProps, 'withTitle'>>> = ({child
 const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
   const findItemLink = useFindItemLink();
   const typeKind = typeItem.kind;
+
+  console.log(typeKind)
 
   if (typeKind === 'intrinsic') {
     return (
@@ -99,6 +102,20 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
     </TypeWrapper>
     )
   }
+  if (typeKind === "array") {
+    console.log(typeItem)
+    return (
+    <TypeWrapper withTitle={withTitle}>
+      <Tag className={$styles.typeContentTag}>
+        Array{'<'}
+        <span className={$styles.typeGeneric}>
+          <Type typeItem={typeItem.type as unknown as TypesItem}/>
+        </span>
+        {'>'}
+      </Tag>
+    </TypeWrapper>
+    )
+  }
   if (typeKind === "literal") {
     return (
     <TypeWrapper withTitle={withTitle}>
@@ -119,7 +136,7 @@ const Type: FC<TypeProps> = ({typeItem, withTitle = false}) => {
       }
 
       <Tag>
-        { typeItem.name || typeItem.type }
+        {/* { typeItem.name || typeItem.type } */}
       </Tag>
     </div>
   )
